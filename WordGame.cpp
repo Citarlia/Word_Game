@@ -3,13 +3,7 @@
 #include <stdlib.h>
 #include "WordGame.h"
 #include "utils.h"
-
-const int BLANK = 0;
-const int WALL = 1;
-const int PEOPLE = 2;
-const int DOOR = 3;
-const int ROW = 15;
-const int COL = 10;
+#include "common.h"
 
 void WordGame::init()
 {
@@ -95,16 +89,19 @@ void WordGame::show()
 		}
 		std::cout << '\n';
 	}
-	for (size_t i = 0; i < COL; i++)
-	{
-		for (size_t j = 0; j < ROW; j++)
-		{
-			std::cout << map[i][j];
-		}
-		std::cout << '\n';
-	}
+
+	// 这里是测试用的，打印实际二维数组内容
+	//for (size_t i = 0; i < COL; i++)
+	//{
+	//	for (size_t j = 0; j < ROW; j++)
+	//	{
+	//		std::cout << map[i][j];
+	//	}
+	//	std::cout << '\n';
+	//}
 }
 
+// 这里的xy坐标有点问题，之后会进行优化
 void WordGame::move()
 {
 	char input = getInput();
@@ -128,6 +125,7 @@ void WordGame::move()
 	update(curPos, people.getPos());
 }
 
+// 更新地图
 void WordGame::update(Pos origin, Pos current)
 {
 	if (map[current.y][current.x] == 3)

@@ -1,5 +1,6 @@
 #pragma once
 #include "PeopleWord.h"
+#include "common.h"
 
 class WordGame
 {
